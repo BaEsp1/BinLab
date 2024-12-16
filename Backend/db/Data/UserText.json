@@ -1,0 +1,31 @@
+[
+    {
+      "name": "Admin User",
+      "email": "admin@example.com",
+      "password": "$2a$10$eW5ZI8joZXeZqFJBrI6rkePmNzX7j2JylE5SD/zgTzbyIfT5fp/nS", 
+      "role": "admin",
+      "state": true
+    },
+    {
+      "name": "Mod User",
+      "email": "mod@example.com",
+      "password": "$2a$10$eW5ZI8joZXeZqFJBrI6rkePmNzX7j2JylE5SD/zgTzbyIfT5fp/nS", 
+      "role": "mod",
+      "state": true
+    },
+    {
+      "name": "Blocked User",
+      "email": "blocked@example.com",
+      "password": "$2a$10$eW5ZI8joZXeZqFJBrI6rkePmNzX7j2JylE5SD/zgTzbyIfT5fp/nS", 
+      "role": "mod",
+      "state": false
+    },
+    {
+      "name": "Regular User",
+      "email": "user@example.com",
+      "password": "$2a$10$eW5ZI8joZXeZqFJBrI6rkePmNzX7j2JylE5SD/zgTzbyIfT5fp/nS", 
+      "role": "mod",
+      "state": true
+    }
+  ]
+  
