@@ -7,13 +7,6 @@ module.exports = (sequelize) => {
       primaryKey: true,
       autoIncrement: true,
     },
-    id_initiative: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'Initiatives',
-        key: 'id_initiative',
-      },
-    },
     name: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -26,12 +19,15 @@ module.exports = (sequelize) => {
     },
     tokenDao: {
       type: DataTypes.STRING,
+      allowNull: false,
     },
     buy_price: {
       type: DataTypes.FLOAT,
+      defaultValue: 1, 
     },
     sell_price: {
       type: DataTypes.FLOAT,
+      defaultValue: 1, 
     },
     likes: {
       type: DataTypes.INTEGER,
@@ -50,6 +46,18 @@ module.exports = (sequelize) => {
     state: {
       type: DataTypes.BOOLEAN,
       defaultValue: true,
+    },
+    addressToken: {
+      type: DataTypes.STRING, 
+      defaultValue: '0x0', 
+    },
+    id_user: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'Users',
+        key: 'id',
+      },
+      allowNull: false,
     },
   });
 };

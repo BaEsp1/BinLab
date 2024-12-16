@@ -8,7 +8,7 @@ const router = express.Router();
 
 // Iniciar sesión y obtener un token
 router.post(
-  '/login',
+  '/',
   expressAsyncHandler(async (req, res) => {
     const { email, password } = req.body;
 

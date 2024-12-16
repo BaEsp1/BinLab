@@ -35,12 +35,12 @@ let capsEntries = entries.map(([key, value]) => [key.charAt(0).toUpperCase() + k
 sequelize.models = Object.fromEntries(capsEntries);
 
 
-const { User,UserStats , Share, OrderBooks, Operations, Likes , Daos , Join , Initiative } = sequelize.models;
+const { User,UserStats , Share, OrderBooks, Operations, Likes , Daos , Join  } = sequelize.models;
 
 User.hasOne(UserStats, { foreignKey: 'id_user' });
-User.hasMany(Initiative, { foreignKey: 'id_user' });
-Initiative.hasOne(Daos, { foreignKey: 'id_initiative' });
-Daos.belongsTo(Initiative, { foreignKey: 'id_initiative' });
+UserStats.belongsTo(User, { foreignKey: 'id_user' });
+User.hasMany(Daos, { foreignKey: 'id_user' });
+Daos.belongsTo(User, { foreignKey: 'id_user' });
 OrderBooks.hasOne(Operations, { foreignKey: 'id_order' });
 
 User.belongsToMany(Daos, { through: Likes });

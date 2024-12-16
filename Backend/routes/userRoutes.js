@@ -3,8 +3,20 @@ const bcrypt = require('bcryptjs');
 const { User } = require('../db/database');
 const expressAsyncHandler = require('express-async-handler');
 const { authenticateUser, authorizeRole } = require('../middleware/authRoutes');
+const { body, validationResult } = require('express-validator');
 
 const router = express.Router();
+
+const validateUser = [
+  body('email').isEmail().withMessage('Email inválido'),
+  body('password')
+    .isLength({ min: 6 })
+    .withMessage('La contraseña debe tener al menos 6 caracteres'),
+  body('name').notEmpty().withMessage('El nombre es obligatorio'),
+  body('role')
+    .isIn(['admin', 'mod'])
+    .withMessage('El rol debe ser "admin" o "mod"'),
+];
 
 // Obtener todos los usuarios
 router.get(
@@ -27,27 +39,47 @@ router.post(
   '/register',
   authenticateUser,
   authorizeRole(['admin']),
+  validateUser,
   expressAsyncHandler(async (req, res) => {
-    const { email, password, name, role } = req.body;
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
 
-    // Verificar si el usuario ya existe
+    const { email, password,lastName, name } = req.body;
+
     const existingUser = await User.findOne({ where: { email } });
     if (existingUser) {
       return res.status(400).json({ message: 'El usuario ya existe' });
     }
-
-    // Encriptar la contraseña
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    // Crear el usuario
+
     const user = await User.create({
       email,
       password: hashedPassword,
       name,
-      role,
+      lastName,
+      role: "user",
     });
 
-    res.status(201).json({ message: 'Usuario registrado con éxito', user });
+
+    await UserStats.create({
+      id_user: user.id, 
+      createdInitiatives: 0,
+      sharedInitiatives: 0,
+      joinedInitiatives: 0,
+      solvedMissions: 0,
+      validatedMissions: 0,
+      initiativeLikes: 0,
+      generatedTokens: 0,
+      tags: {}, 
+    });
+
+    res.status(201).json({
+      message: 'Usuario registrado con éxito',
+      user,
+    });
   })
 );
 
@@ -58,7 +90,7 @@ router.put(
   authorizeRole(['admin', 'mod']),
   expressAsyncHandler(async (req, res) => {
     const { id } = req.params;
-    const { email, password, name, role } = req.body;
+    const { email, password, name, lastName, role } = req.body;
 
     try {
       const user = await User.findByPk(id);
@@ -68,6 +100,7 @@ router.put(
 
       user.email = email ?? user.email;
       user.name = name ?? user.name;
+      user.lastName = lastName ?? user.lastName;
       user.role = role ?? user.role;
 
       if (password) {
@@ -106,5 +139,29 @@ router.put(
     }
   })
 );
+
+//get data user: 
+router.get(
+  '/:id',
+  authenticateUser,
+  expressAsyncHandler(async (req, res) => {
+    const { id } = req.params;
+    try {
+      const user = await User.findByPk(id, {
+        include: [{ model: UserStats, as: 'UserStats' }] 
+      });
+
+      if (!user) {
+        return res.status(404).json({ message: 'Usuario no encontrado' });
+      }
+
+      res.status(200).json(user);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: 'Error al obtener el usuario' });
+    }
+  })
+);
+
 
 module.exports = router;
