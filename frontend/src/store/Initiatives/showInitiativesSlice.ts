@@ -46,61 +46,12 @@ const initialState: InitiativesState = {
   sortOrder: 'asc',
 };
 
-export interface BackendInitiative {
-  id: string;
-  nombre: string;
-  idea: string;
-  problema: string;
-  oportunidad: string;
-  solucion: string;
-  monto_requerido: number;
-  buy_price: number;
-  sell_price: number;
-  misiones_actuales: number;
-  misiones_objetivo: number;
-  colaboradores: number;
-  likes: number;
-  shares: number;
-}
-
-
 export const fetchInitiatives = createAsyncThunk(
   'initiatives/fetchInitiatives',
   async () => {
     try {
-      const response = await axios.get(`${URL}/api/iniciativa/getAllIniciativas`);
-      const mappedInitiatives = response.data.dataIterable.map((item: BackendInitiative) => ({
-        id: String(item.id),
-        name: item.nombre,
-        priceFluctuation: [
-          { date: "2024-11-22", value: 15 },
-          { date: "2024-11-23", value: 2 },
-          { date: "2024-11-24", value: 89 },
-          { date: "2024-11-25", value: 45 },
-          { date: "2024-11-26", value: 60 },
-          { date: "2024-11-27", value: 35 },
-          { date: "2024-11-28", value: 40 },
-          { date: "2024-11-29", value: 85 },
-          { date: "2024-11-30", value: 30 },
-          { date: "2024-12-01", value: 55 },
-        ],
-        colaborator: item.colaboradores,
-        tokens: 400,
-        tokenDao:"AYU",
-        missions: `${item.misiones_actuales}/${item.misiones_objetivo}`,
-        likes: item.likes,
-        shares: item.shares,
-        createdAt: "2024-11-20T10:00:00Z",
-        logo: "https://www.shutterstock.com/image-photo/help-friend-through-tough-time-600nw-1899282823.jpg",
-        idea: item.idea,
-        problem: item.problema,
-        solution: item.solucion,
-        opportunity: item.oportunidad,
-        buy_price: item.monto_requerido,
-        sell_price: item.buy_price,
-      }));
-
-      return mappedInitiatives;  
+      const response = await axios.get(`${URL}/api/iniciativa/getAllIniciativas`)
+      return response.data ;  
     } catch (error) {
       console.log(error);
       throw error;
