@@ -1,6 +1,7 @@
 const { Daos, Users } = require('../db/database');
 const { authenticateUser , authorizeRole } = require('../middleware/authRoutes');
 const expressAsyncHandler = require('express-async-handler');
+const { updateLikes , updateJoins, updateShares } = require('./Controllers/ActionsUser');
 
 const router = express.Router();
 
@@ -39,6 +40,9 @@ router.post(
         problem,
         solution,
         logo ,
+        likes:0,
+        share:0,
+        join: 0,
         addressOwner: address,
         addressToken: '0x0',
         channel:"sepolia",
@@ -90,6 +94,10 @@ router.get(
       }
     })
   );
+  
+  router.put('/likes/:idDao', updateLikes);
+  router.put('/joins/:idDao', updateJoins);
+  router.put('/shares/:idDao', updateShares);
   
 
 module.exports = router;

@@ -60,4 +60,34 @@
     - PUT - /dao/:id
     - Request: id_Dao 
 
-## 
+- Shared Dao:
+    - PUT - /dao/share/:id
+    - Request: id_Dao
+
+- Likes Dao:
+    - PUT - /dao/likes/:id
+    - Request: id_Dao
+
+- Join Dao: 
+    - PUT - /dao/join/:id
+    - Request: id_Dao
+
+## OrdersBook
+
+- Create Order:
+    - POST - /order
+    - Request body: id_Dao ,price, quantity, type
+
+- Update Price or Quantity:
+    - PUT - /order/:id
+    - Request: id_order
+    - Rquest body: price or quantity
+
+- Delete Order:
+    - DELETE - /order/:id
+    - Request: id_order
+
+- Change state order:
+    - PUT - /order/state/:id
+    - Request : id_order
+    - Request body: state

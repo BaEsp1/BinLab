@@ -10,8 +10,15 @@ module.exports = (sequelize) => {
     id_order: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'OrderBooks',
+        model: 'OrderBooks', 
         key: 'id_order',
+      },
+    },
+    id_user: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'Users',
+        key: 'id_user',
       },
     },
     createdAt: {

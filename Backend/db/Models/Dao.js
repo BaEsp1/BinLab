@@ -33,6 +33,10 @@ module.exports = (sequelize) => {
       type: DataTypes.INTEGER,
       defaultValue: 0,
     },
+    join: {
+      type: DataTypes.INTEGER,
+      defaultValue: 0,
+    },
     shares: {
       type: DataTypes.INTEGER,
       defaultValue: 0,

@@ -35,19 +35,30 @@ let capsEntries = entries.map(([key, value]) => [key.charAt(0).toUpperCase() + k
 sequelize.models = Object.fromEntries(capsEntries);
 
 
-const { User,UserStats , Share, OrderBooks, Operations, Likes , Daos , Join  } = sequelize.models;
+const { User,UserStats ,Daos, OrderBooks, Operations   } = sequelize.models;
 
+//Relación User y Stats
 User.hasOne(UserStats, { foreignKey: 'id_user' });
 UserStats.belongsTo(User, { foreignKey: 'id_user' });
+
+// Relacion Daos y User 
 User.hasMany(Daos, { foreignKey: 'id_user' });
 Daos.belongsTo(User, { foreignKey: 'id_user' });
+
+// Relación entre `OrderBooks` y `Operations`
 OrderBooks.hasOne(Operations, { foreignKey: 'id_order' });
+Operations.belongsTo(OrderBooks, { foreignKey: 'id_order' });
 
-User.belongsToMany(Daos, { through: Likes });
-User.belongsToMany(Daos, { through: Join });
-User.belongsToMany(Daos, { through: Share });
+// Relación entre `User` y `OrderBooks`
+User.hasMany(OrderBooks, { foreignKey: 'id_user' });
+OrderBooks.belongsTo(User, { foreignKey: 'id_user' });
 
-// Exportar los modelos y la conexión
+// Relación entre `User` y `Operations`
+User.hasMany(Operations, { foreignKey: 'id_user' });
+Operations.belongsTo(User, { foreignKey: 'id_user' });
+
+
+
 module.exports = {
   ...sequelize.models,
   conn: sequelize,

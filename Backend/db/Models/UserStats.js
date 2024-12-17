@@ -7,7 +7,7 @@ module.exports = (sequelize) => {
       primaryKey: true,
       references: {
         model: 'Users',
-        key: 'id',
+        key: 'id_user',
       },
     },
     createdInitiatives: {
