@@ -11,8 +11,24 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    missions: {
+    idea: {
       type: DataTypes.STRING,
+      allowNull: false,
+    },
+    opportunity: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    problem: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    solution: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    missions: {
+      type: DataTypes.INTEGER,
     },
     priceFluctuation: {
       type: DataTypes.JSON,
@@ -42,7 +58,8 @@ module.exports = (sequelize) => {
       defaultValue: 0,
     },
     createdAt: {
-      type: DataTypes.STRING,
+      type: DataTypes.DATE,  
+      defaultValue: DataTypes.NOW, 
     },
     logo: {
       type: DataTypes.STRING,
