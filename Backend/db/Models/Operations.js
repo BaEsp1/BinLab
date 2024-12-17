@@ -21,8 +21,13 @@ module.exports = (sequelize) => {
         key: 'id_user',
       },
     },
+    type: {
+      type: DataTypes.ENUM('buy', 'sell'),
+      allowNull: false,
+    },
     createdAt: {
-      type: DataTypes.STRING,
+      type: DataTypes.DATE,  
+      defaultValue: DataTypes.NOW, 
     },
     state: {
       type: DataTypes.BOOLEAN,
