@@ -29,72 +29,8 @@ interface OrdersState {
 }
 
 const initialState: OrdersState = {
-  sells: [ {
-    "id": "1",
-    "logoDao": "https://cdn-icons-png.freepik.com/256/10429/10429931.png?semt=ais_hybrid",
-    "tokenDao": "UNIK",
-    "quantity": 100,
-    "price": 150.5,
-    "address": "0x1234567890abcdef1234567890abcdef12345678",
-    "state": true
-  },
-  {
-    "id":"2",
-    "logoDao": "https://example.com/logo2.png",
-    "tokenDao": "REBN",
-    "quantity": 50,
-    "price": 75.75,
-    "address": "0xabcdef1234567890abcdef1234567890abcdef12",
-    "state": true
-  },
-  {
-    "id": "3",
-    "logoDao": "https://example.com/logo1.png",
-    "tokenDao": "FEVR",
-    "quantity": 100,
-    "price": 150.5,
-    "address": "0x1234567890abcdef1234567890abcdef12345678",
-    "state": false
-  },
-  {
-    "id":"4",
-    "logoDao": "https://example.com/logo2.png",
-    "tokenDao": "EMEL",
-    "quantity": 50,
-    "price": 75.75,
-    "address": "0xabcdef1234567890abcdef1234567890abcdef12",
-    "state": true
-  }
-],
-  buys: [
-    {
-      "id":"1",
-        "logoDao": "https://example.com/logo3.png",
-        "tokenDao": "SWIN",
-        "quantity": 200,
-        "price": 120.25,
-        "address": "0x7890abcdef1234567890abcdef1234567890abcd",
-        "state": true
-      },
-      {
-        "id": "2",
-        "logoDao": "https://example.com/logo4.png",
-        "tokenDao": "DIMO",
-        "quantity": 300,
-        "price": 99.99,
-        "address": "0xabcdefabcdefabcdefabcdefabcdefabcdefabcdef",
-        "state": true
-      },
-      {
-        "id": "3",
-        "logoDao": "https://example.com/logo4.png",
-        "tokenDao": "TIKM",
-        "quantity": 300,
-        "price": 99.99,
-        "address": "0xabcdefabcdefabcdefabcdefabcdefabcdefabcdef",
-        "state": false
-      }
-  ],
+  sells:[],
+  buys:[],
   loading: false,
   error: null
 };

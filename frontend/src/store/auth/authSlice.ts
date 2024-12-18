@@ -23,22 +23,12 @@ interface AuthState {
 const emptyUser: AuthState = {
   token: null,
   user: {
-    id: 1,
-    name:"Fabio",
-    lastName:"A.",
-    email:"FabioA@gmail.com",
-    role:"user",
-    tags:[{
-      dao:"Fractal",
-      role:"Co-founder"
-    },
-    {dao:"EasyMed",
-    role:"Colaborator"
-    },
-    {dao:"Shared",
-    role:"Workspace owner"
-    }
-  ]
+    id: null,
+    name: "",
+    lastName:"",
+    email:"",
+    role:"",
+    tags:[]
   }, 
 };
 

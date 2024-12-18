@@ -1,5 +1,5 @@
 # BinLab
-<img src="../frontend/src/assets/LogoLarge.png" alt="BinLab Logo" width="320" />
+<img src="./frontend/src/assets/LogoLarge.png " alt="BinLab Logo" width="320" />
 
 ## Industria o Rubro  
 Tecnología e Innovación: Plataforma colaborativa para iniciativas sociales y emprendedoras.
