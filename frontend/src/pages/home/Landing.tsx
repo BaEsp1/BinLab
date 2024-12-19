@@ -14,10 +14,21 @@ const Landing = () => {
         <Hero />
       </header>
       <main>
-        <StartSection />
-        <BenefitSection />
-        <AboutSection />
-        <BannerSection />
+        <section id="start" className="h-[40em] p-6">
+          <StartSection />
+        </section>
+        <section id="benefits">
+          <BenefitSection />
+        </section>
+        <section id="about">
+          <AboutSection />
+        </section>
+        <section id="initiative">
+          <BannerSection />
+        </section>
+        <section id="contact">
+          <></>
+        </section>
       </main>
       <Footer />
     </div>

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import LoginButton from "../login/LoginButton";
-import logo from "../../assets/Openlab_logo.svg";
+import logo from "../../assets/LogoLarge.png";
 import flag from "../../assets/landing/US_Flag.svg";
 import { useState } from "react";
 
@@ -9,23 +9,20 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="relative flex justify-center border-b bg-primary">
-        <div className="container flex justify-between p-3 text-white">
+      <nav className="fixed top-0 left-0 right-0 z-50 flex justify-center border-b bg-white shadow-lg">
+        <div className="container flex justify-between p-3 text-black">
           <Link to={"/"}>
-            <img src={logo} alt="logo" />
+            <img src={logo} alt="logo" className="w-[14.5em] h-[4.5em]" />
           </Link>
           <div className="flex items-center gap-5 text-sm font-semibold font-secondary">
             <div className="items-center hidden gap-5 md:flex">
-              <Link to={"/"}>Visión</Link>
-              <Link to={"/initiatives"}>Iniciativas</Link>
-              <Link to={"/"}>Blog</Link>
-              <Link to={"/test"}>Entrar</Link>
-              <Link to={"/"}>Empezar</Link>
+              <a href="#start">Comienzo</a>
+              <a href="#benefits">Beneficios</a>
+              <a href="#initiative">Iniciativas</a>
+              <a href="#about">Nosotros</a>
+              <a href="#contact">Contacto</a>
+              <br/>
               <LoginButton />
-            </div>
-            <div className="flex items-center h-full gap-2 px-3 border-l border-r">
-              <img src={flag} alt="" />
-              <p>EN</p>
             </div>
 
             <div className="flex items-center md:hidden">
@@ -71,11 +68,11 @@ const Navbar = () => {
                 </div>
 
                 <div className="flex flex-col items-center justify-evenly min-h-dvh">
-                  <Link to={"/"}>Visión</Link>
-                  <Link to={"/initiatives"}>Iniciativas</Link>
-                  <Link to={"/"}>Blog</Link>
-                  <Link to={"/test"}>Entrar</Link>
-                  <Link to={"/"}>Empezar</Link>
+                <a href="#start">Comienzo</a>
+                <a href="#benefits">Beneficios</a>
+                <a href="#initiative">Iniciativas</a>
+                <a href="#about">Nosotros</a>
+                <a href="#contact">Contacto</a>
                   <LoginButton />
                 </div>
               </div>

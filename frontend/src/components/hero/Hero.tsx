@@ -4,7 +4,7 @@ import button_arrow from "../../assets/landing/send-2.svg";
 const Hero = () => {
   return (
     <div
-      className="relative flex w-full h-[816] place-content-center bg-primary"
+      className="relative flex w-full h-[42em] place-content-center bg-primary"
       id="hero_bg"
     >
       <div className="container flex flex-col items-center justify-between pt-8 md:pt-0 md:flex-row h-fit">

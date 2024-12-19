@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import logo from "../../assets/Openlab_logo2.svg";
+import logo from "../../assets/LogoLarge.png";
 import facebook from "../../assets/landing/Facebook.svg";
 import instagram from "../../assets/landing/instagram.svg";
 import x_logo from "../../assets/landing/X.svg";
@@ -23,7 +23,7 @@ const Footer = () => {
       {isMobile ? (
         <>
           <div className="flex flex-col items-center gap-12 px-5">
-            <img src={logo} alt="logo" />
+            <img src={logo} alt="logo" className="h-[5em]"/>
             <form onSubmit={() => {}} className="w-[350px] flex flex-col gap-4">
               <p className="text-sm font-semibold">
                 Suscríbete a nuestro Boletín
@@ -42,13 +42,13 @@ const Footer = () => {
           </div>
           <div className="container flex items-center justify-between px-5 text-sm font-medium sm:justify-around font-secondary">
             <div className="flex flex-col items-center gap-10">
-              <Link to={"/"}>Visión</Link>
-              <Link to={"/"}>Iniciativas</Link>
-              <Link to={"/"}>Blog</Link>
+              <a href="#start">Comienzo</a>
+              <a href="#benefits">Beneficios</a>
+              <a href="#initiative">Iniciativas</a>
             </div>
             <div className="flex flex-col items-center gap-10">
-              <Link to={"/"}>Entrar</Link>
-              <Link to={"/"}>Empezar</Link>
+              <a href="#about">Nosotros</a>
+              <a href="#contact">Contacto</a>
               <div className="flex gap-4">
                 <Link to={"/"}>
                   <img src={facebook} alt="facebook" />
@@ -66,7 +66,7 @@ const Footer = () => {
       ) : (
         <>
           <div className="container flex justify-between">
-            <img src={logo} alt="logo" />
+            <img src={logo} alt="logo" className="h-[5em]" />
             <div className="flex gap-4">
               <Link to={"/"}>
                 <img src={facebook} alt="facebook" />
@@ -81,11 +81,11 @@ const Footer = () => {
           </div>
           <div className="container flex justify-between">
             <div className="flex items-center gap-5 text-sm font-medium font-secondary">
-              <Link to={"/"}>Visión</Link>
-              <Link to={"/"}>Iniciativas</Link>
-              <Link to={"/"}>Blog</Link>
-              <Link to={"/"}>Entrar</Link>
-              <Link to={"/"}>Empezar</Link>
+            <a href="#start">Comienzo</a>
+              <a href="#benefits">Beneficios</a>
+              <a href="#initiative">Iniciativas</a>
+              <a href="#about">Nosotros</a>
+              <a href="#contact">Contacto</a>
             </div>
             <form onSubmit={() => {}} className="w-[350px] flex flex-col gap-4">
               <p className="text-sm font-semibold">
@@ -108,7 +108,7 @@ const Footer = () => {
       <div className="flex items-center justify-center w-full p-5 border-t">
         <div className="container flex justify-between text-sm">
           <p>Privacy Policy</p>
-          <p>© 2024 Openlab SAS</p>
+          <p>© 2025 Binlab</p>
         </div>
       </div>
     </footer>
