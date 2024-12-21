@@ -11,7 +11,9 @@ const Landing = () => {
     <div className="bg-secondary">
       <header className="flex flex-col h-dvh">
         <Navbar />
-        <Hero />
+        <section id="home">
+        <Hero/>
+        </section>
       </header>
       <main>
         <section id="start" className="h-[40em] pt-12">

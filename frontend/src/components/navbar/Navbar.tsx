@@ -1,7 +1,6 @@
-import { Link } from "react-router-dom";
 import LoginButton from "../login/LoginButton";
 import logo from "../../assets/LogoLarge.png";
-import flag from "../../assets/landing/US_Flag.svg";
+
 import { useState } from "react";
 
 const Navbar = () => {
@@ -11,9 +10,9 @@ const Navbar = () => {
     <>
       <nav className="fixed top-0 left-0 right-0 z-50 flex justify-center border-b bg-white shadow-lg">
         <div className="container flex justify-between p-3 text-black">
-          <Link to={"/"}>
+          <a href="#home">
             <img src={logo} alt="logo" className="w-[14.5em] h-[4.5em]" />
-          </Link>
+          </a>
           <div className="flex items-center gap-5 text-sm font-semibold font-secondary">
             <div className="items-center hidden gap-5 md:flex">
               <a href="#start">Comienzo</a>
