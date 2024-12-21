@@ -19,7 +19,7 @@ const Footer = () => {
   }, [width]);
 
   return (
-    <footer className="flex flex-col items-center justify-center gap-10 mt-10">
+    <footer className="flex flex-col items-center justify-center gap-10 mt-10 h-min-[6em]">
       {isMobile ? (
         <>
           <div className="flex flex-col items-center gap-12 px-5">

@@ -14,19 +14,19 @@ const Landing = () => {
         <Hero />
       </header>
       <main>
-        <section id="start" className="h-[40em] p-6">
+        <section id="start" className="h-[40em] pt-12">
           <StartSection />
         </section>
-        <section id="benefits">
+        <section id="benefits"className="h-[40em]" >
           <BenefitSection />
         </section>
-        <section id="about">
+        <section id="about" className="h-[44em] pt-10 pb-12">
           <AboutSection />
         </section>
-        <section id="initiative">
+        <section id="initiative" className="h-[42em] pt-16">
           <BannerSection />
         </section>
-        <section id="contact">
+        <section id="contact" className="h-[40em]">
           <></>
         </section>
       </main>

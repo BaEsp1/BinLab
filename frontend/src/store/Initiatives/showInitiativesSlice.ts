@@ -9,15 +9,14 @@ export interface PriceFluctuation {
   value: number;
 }
 export interface Initiative {
-  id: string;
+  id: number;
   name: string;
   priceFluctuation: PriceFluctuation[]
   colaborator: number;
   tokens: string;
-  tokenDao:string;
   missions: string;
   likes: number;
-  shares: string;
+  shares: number;
   createdAt: string;
   logo: string;
   idea: string;
@@ -120,7 +119,7 @@ export const selectFilteredAndSortedInitiatives = (state: RootState) => {
         comparison = a.likes - b.likes; 
         break;
       case 'shares':
-        comparison = a.shares.localeCompare(b.shares);  
+        comparison = a.likes - b.likes;
         break;
       default:
         break;
